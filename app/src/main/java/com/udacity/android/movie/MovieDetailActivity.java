@@ -13,6 +13,10 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
+/**
+ * Created by Gabriel Petrovick on 10/01/2017.
+ */
+
 public class MovieDetailActivity extends AppCompatActivity {
 
     private Movie movie;

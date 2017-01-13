@@ -19,6 +19,10 @@ import com.udacity.android.movie.Utilities.OpenMovieJsonUtils;
 import java.net.URL;
 import java.util.List;
 
+/**
+ * Created by Gabriel Petrovick on 10/01/2017.
+ */
+
 public class MainActivity extends AppCompatActivity implements MovieAdapter.MovieAdapterOnClickHandler {
 
     private RecyclerView mRecyclerMovies;
