@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Movie</string>
-    <string name="APIKey">1f52fbbde57eccbbc7c48b82b3b5851c</string>
+    <string name="APIKey">KEY</string>
     <string name="rated">Most Rated</string>
     <string name="popular">By Popularity</string>
     <string name="refresh">Refresh</string>
