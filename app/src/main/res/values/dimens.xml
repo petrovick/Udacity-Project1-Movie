@@ -3,6 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="textViewSize">16dp</dimen>
+    <dimen name="textViewSizeSmall">8dp</dimen>
     <dimen name="marginTop">5dp</dimen>
     <dimen name="marginLeft">5dp</dimen>
 

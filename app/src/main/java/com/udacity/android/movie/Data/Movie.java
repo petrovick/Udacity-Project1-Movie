@@ -114,4 +114,20 @@ public class Movie implements Serializable
     public void setRelease_date(Date release_date) {
         this.release_date = release_date;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", original_title='" + original_title + '\'' +
+                ", title='" + title + '\'' +
+                ", overview='" + overview + '\'' +
+                ", poster_path='" + poster_path + '\'' +
+                ", original_language='" + original_language + '\'' +
+                ", popularity='" + popularity + '\'' +
+                ", vote_count=" + vote_count +
+                ", vote_average=" + vote_average +
+                ", release_date=" + release_date +
+                '}';
+    }
 }

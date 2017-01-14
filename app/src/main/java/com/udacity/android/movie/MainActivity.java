@@ -4,12 +4,18 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.udacity.android.movie.Data.Movie;
@@ -17,6 +23,7 @@ import com.udacity.android.movie.Utilities.NetworkUtils;
 import com.udacity.android.movie.Utilities.OpenMovieJsonUtils;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,7 +49,8 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
     private String calledFunction = "top_rated";
     private boolean cleanList = false;
-    LinearLayoutManager layoutManager;
+    //LinearLayoutManager layoutManager;
+    GridLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +59,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
         mRecyclerMovies = (RecyclerView) findViewById(R.id.rv_movies);
 
-        layoutManager
-                = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        layoutManager = new GridLayoutManager(this, 4);//LinearLayoutManager.VERTICAL, false);
 
         mRecyclerMovies.setLayoutManager(layoutManager);
         mRecyclerMovies.setHasFixedSize(true);
