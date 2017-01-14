@@ -51,8 +51,10 @@ public class MovieDetailActivity extends AppCompatActivity {
         {
             if(intentThatHaveCalled.hasExtra("movie"))
             {
-                movie = (Movie) intentThatHaveCalled.getSerializableExtra("movie");
+                movie = (Movie) intentThatHaveCalled.getParcelableExtra("movie");
+
                 Picasso.with(this).load("http://image.tmdb.org/t/p/w185" + movie.getPoster_path()).into(mParallax_header_imageview);
+
                 DecimalFormat df = new DecimalFormat("#.00");
                 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
                 tv_movie_detail_original_title.setText(movie.getOriginal_title());

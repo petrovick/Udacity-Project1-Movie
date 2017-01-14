@@ -19,6 +19,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Gabriel Petrovick on 10/01/2017.
  */
@@ -88,13 +91,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
-        ImageView iv_movie_image;
-        TextView tv_movie_description;
-        TextView tv_movie_ratings;
+        @BindView(R2.id.iv_movie_table_image) ImageView iv_movie_image;
+        @BindView(R2.id.tv_movie_table_description) TextView tv_movie_description;
+        @BindView(R2.id.tv_movie_table_ratings) TextView tv_movie_ratings;
 
         public MovieViewHolder(View view)
         {
             super(view);
+            //try {
+            //    ButterKnife.bind(iv_movie_image, context);
+            //} catch (Exception e) {
+            //    e.printStackTrace();
+            //}
             iv_movie_image = (ImageView) view.findViewById(R.id.iv_movie_table_image);
             tv_movie_description = (TextView) view.findViewById(R.id.tv_movie_table_description);
             tv_movie_ratings = (TextView) view.findViewById(R.id.tv_movie_table_ratings);

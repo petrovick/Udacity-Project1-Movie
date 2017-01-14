@@ -1,5 +1,8 @@
 package com.udacity.android.movie.Data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,7 +10,7 @@ import java.util.Date;
  * Created by Gabriel Petrovick on 10/01/2017.
  */
 
-public class Movie implements Serializable
+public class Movie implements Parcelable
 {
     private int id;
     private String overview;
@@ -129,5 +132,48 @@ public class Movie implements Serializable
                 ", vote_average=" + vote_average +
                 ", release_date=" + release_date +
                 '}';
+    }
+
+    public static final Parcelable.Creator<Movie>
+            CREATOR = new Parcelable.Creator<Movie>() {
+
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
+        }
+
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
+
+    private Movie(Parcel p){
+        id = p.readInt();
+        original_title = p.readString();
+        title = p.readString();
+        overview = p.readString();
+        poster_path = p.readString();
+        original_language = p.readString();
+        popularity = p.readString();
+        vote_average = p.readFloat();
+        release_date = new Date(p.readLong());
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(original_title);
+        dest.writeString(title);
+        dest.writeString(overview);
+        dest.writeString(poster_path);
+        dest.writeString(original_language);
+        dest.writeString(popularity);
+        dest.writeFloat(vote_average);
+        dest.writeLong(release_date.getTime());
     }
 }

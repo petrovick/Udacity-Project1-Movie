@@ -26,6 +26,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 /**
  * Created by Gabriel Petrovick on 10/01/2017.
  */
@@ -114,13 +120,26 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
             String location = params[0];
             try {
-            URL movieRequestUrl = NetworkUtils.buildUrl(location, page);
+                URL movieRequestUrl = NetworkUtils.buildUrl(location, page);
+                //String jsonWeatherResponse = NetworkUtils
+                //        .getResponseFromHttpUrl(movieRequestUrl);
+                RequestBody formBody = new FormBody.Builder()
+                        //.add("email", "Jurassic@Park.com")
+                        //.add("tel", "90301171XX")
+                        .build();
 
-                String jsonWeatherResponse = NetworkUtils
-                        .getResponseFromHttpUrl(movieRequestUrl);
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url(movieRequestUrl)
+                        .get()
+                        .build();
+
+                Response response = client.newCall(request).execute();
 
                 List<Movie> simpleJsonMovieData = OpenMovieJsonUtils
-                        .getSimpleMoviesFromJson(MainActivity.this, jsonWeatherResponse);
+                        //.getSimpleMoviesFromJson(MainActivity.this, jsonWeatherResponse);
+                        .getSimpleMoviesFromJson(MainActivity.this, response.body().string());
+
                 mMovieList = simpleJsonMovieData;
                 return simpleJsonMovieData;
 
